@@ -65,7 +65,7 @@ function fib(n) {
     for (let i = 2; i < n + 1; i++) {
         arr.push(add(arr[(subtract(i, 2))], arr[(subtract(i, 1))]))
     }
-    return arr[n]
+    return arr[n - 1]
 }
 
 
