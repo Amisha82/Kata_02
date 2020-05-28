@@ -33,13 +33,15 @@ console.log(" 3.  Power = " + expo)
 
 function factorial(n) {
 
-    if (n == 0 || n == 1) {
-        return 1;
 
-    } else {
-        return Multiply(n, factorial(n - 1));
-    }
+    var ans = 1;
+
+    for (var i = 2; i <= n; i++)
+        ans = Multiply(ans, i);
+    return ans;
 }
+
+
 answer = factorial(4)
 console.log(" 4.  Factorial = " + answer)
 
@@ -48,17 +50,23 @@ console.log(" 4.  Factorial = " + answer)
 //0, 1, 1, 2, 3, 5, 8, 13, 21
 
 function fib(n) {
-    let arr = [0, 1];
-    for (let i = 2; i < n + 1; i++) {
-        arr.push(add(arr[i - 2], arr[i - 1]))
 
+
+    if (n <= 2) return 1;
+
+    let a = 1, b = 1;
+    for (let i = 3; i <= n; i++) {
+        let c = add(a, b);
+        a = b;
+        b = c;
     }
-    return arr[n]
+    return b;
 }
 
 
+
 var fibo = fib(8)
-console.log(" 4.  Fibonacci = " + fibo)
+console.log(" 5.  Fibonacci = " + fibo)
 
 
 
