@@ -6,6 +6,10 @@ let total1 = add(2, 4)
 
 console.log(" 1.  ADD" + "  " + "=" + "  " + total1)
 
+function subtract(a, b) {
+    return a - b
+}
+
 // 6+6+6+6+6=4
 function Multiply(y, z) {
     let answer = 0
@@ -32,14 +36,21 @@ console.log(" 3.  Power = " + expo)
 // 4. Factorial 5 * 4 * 3 * 2 * 1 = 120 ........calling factorial(4) should return a result of 24.//
 
 function factorial(n) {
-
-
-    var ans = 1;
-
-    for (var i = 2; i <= n; i++)
-        ans = Multiply(ans, i);
-    return ans;
+    if (n === 0) {
+        return 1;
+    }
+    else {
+        return n * factorial(subtract(n, 1));
+    }
 }
+
+
+//  var ans = 1;
+
+//for (var i = 2; i <= n; i++)
+//  ans = Multiply(ans, i);
+//return ans;
+//}
 
 
 answer = factorial(4)
@@ -50,17 +61,11 @@ console.log(" 4.  Factorial = " + answer)
 //0, 1, 1, 2, 3, 5, 8, 13, 21
 
 function fib(n) {
-
-
-    if (n <= 2) return 1;
-
-    let a = 1, b = 1;
-    for (let i = 3; i <= n; i++) {
-        let c = add(a, b);
-        a = b;
-        b = c;
+    let arr = [0, 1];
+    for (let i = 2; i < n + 1; i++) {
+        arr.push(add(arr[(subtract(i, 2))], arr[(subtract(i, 1))]))
     }
-    return b;
+    return arr[n]
 }
 
 
